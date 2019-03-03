@@ -1,59 +1,197 @@
 import React from 'react'
-import Link from 'next/link'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import { withStyles } from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import List from '@material-ui/core/List'
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import InboxIcon from '@material-ui/icons/MoveToInbox'
+import MailIcon from '@material-ui/icons/Mail'
 
-const links = [
-  { href: 'https://spicekitchen.com', label: 'SpiceKitchen' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
+const drawerWidth = 240
+
+const styles = theme => ({
+    root: {
+        display: 'flex',
+    },
+    appBar: {
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+    },
+    appBarShift: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginRight: drawerWidth,
+    },
+    menuButton: {
+        display: 'inline',
+        float: 'right',
+        margin: '24px 20px 0px 0px;'
+    },
+    hide: {
+        display: 'none',
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    drawerHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        padding: '0 8px',
+        ...theme.mixins.toolbar,
+        justifyContent: 'flex-start',
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing.unit * 3,
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        marginRight: -drawerWidth,
+    },
+    contentShift: {
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginRight: 0,
+    },
 })
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <ul>
-        {links.map(({ key, href, label }) => (
-          <li key={key}>
-            <Link href={href}>
-              <a>{label}</a>
-            </Link>
-          </li>
-        ))}
-      <li>
-        <Link prefetch href="/">
-          <a>Menu</a>
-        </Link>
-      </li>
-      </ul>
-    </ul>
+class PersistentDrawerRight extends React.Component {
+    state = {
+        open: false,
+    }
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
+    handleDrawerOpen = () => {
+        this.setState({ open: true })
+    }
 
-export default Nav
+    handleDrawerClose = () => {
+        this.setState({ open: false })
+    }
+
+    render() {
+        const { classes, theme } = this.props
+        const { open } = this.state
+
+        return (
+            <div className={classes.root}>
+                <CssBaseline />
+                <AppBar
+                    position="fixed"
+                    className={classNames(classes.appBar, {
+                        [classes.appBarShift]: open,
+                    })}
+                    style={{ background: 'transparent'}}
+                >
+                    <div>
+                        <img
+                            className="logo"
+                            src="/static/logo.png"
+                            style={{
+                                height: '100px',
+                                width: '100px',
+                                marginLeft: '20px'
+                            }}
+                        />
+                        <IconButton
+                            color="inherit"
+                            aria-label="Open drawer"
+                            onClick={this.handleDrawerOpen}
+                            className={classNames(
+                                classes.menuButton,
+                                open && classes.hide
+                            )}
+                        >
+                            <MenuIcon style={{
+                              color: '#333',
+                              fontSize: '30px'
+                            }}/>
+                        </IconButton>
+                    </div>
+                </AppBar>
+
+                <Drawer
+                    className={classes.drawer}
+                    variant="persistent"
+                    anchor="right"
+                    open={open}
+                    classes={{
+                        paper: classes.drawerPaper,
+                    }}
+                >
+                    <div className={classes.drawerHeader}>
+                        <IconButton onClick={this.handleDrawerClose}>
+                            {theme.direction === 'rtl' ? (
+                                <ChevronLeftIcon />
+                            ) : (
+                                <ChevronRightIcon />
+                            )}
+                        </IconButton>
+                    </div>
+                    <Divider />
+                    <List>
+                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map(
+                            (text, index) => (
+                                <ListItem button key={text}>
+                                    <ListItemIcon>
+                                        {index % 2 === 0 ? (
+                                            <InboxIcon />
+                                        ) : (
+                                            <MailIcon />
+                                        )}
+                                    </ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </ListItem>
+                            )
+                        )}
+                    </List>
+                    <Divider />
+                    <List>
+                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                            <ListItem button key={text}>
+                                <ListItemIcon>
+                                    {index % 2 === 0 ? (
+                                        <InboxIcon />
+                                    ) : (
+                                        <MailIcon />
+                                    )}
+                                </ListItemIcon>
+                                <ListItemText primary={text} />
+                            </ListItem>
+                        ))}
+                    </List>
+                </Drawer>
+            </div>
+        )
+    }
+}
+
+PersistentDrawerRight.propTypes = {
+    classes: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
+}
+
+export default withStyles(styles, { withTheme: true })(PersistentDrawerRight)
