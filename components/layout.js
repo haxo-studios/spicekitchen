@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 // import Head from './head'
 import BGVideo from './coverVideo'
 import Nav from './nav'
+import BottomNav from './bottomNav'
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -32,6 +33,7 @@ class Layout extends Component {
                     <GlobalStyle />
                     <Nav />
                     {children}
+                    <BottomNav />
                 </div>
             </>
         )
