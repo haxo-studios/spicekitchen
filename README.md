@@ -1,6 +1,6 @@
 # Spice Kitchen
 
-Hi There, This repository contains the codebase of your Spice Kitchen Site.
+Hi There, This repository contains the codebase of our Spice Kitchen Site.
 
 Live Demo: Soon to be Launched!!
 
