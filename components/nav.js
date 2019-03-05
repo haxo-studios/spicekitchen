@@ -4,10 +4,8 @@ import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import List from '@material-ui/core/List'
-import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -42,7 +40,7 @@ const styles = theme => ({
     menuButton: {
         display: 'inline',
         float: 'right',
-        margin: '24px 20px 0px 0px;'
+        margin: '24px 20px 0px 0px;',
     },
     hide: {
         display: 'none',
@@ -60,6 +58,10 @@ const styles = theme => ({
         padding: '0 8px',
         ...theme.mixins.toolbar,
         justifyContent: 'flex-start',
+        height: '100px',
+        [theme.breakpoints.up('md')]: {
+            minHeight: '102px',
+        },
     },
     content: {
         flexGrow: 1,
@@ -104,7 +106,7 @@ class PersistentDrawerRight extends React.Component {
                     className={classNames(classes.appBar, {
                         [classes.appBarShift]: open,
                     })}
-                    style={{ background: 'transparent'}}
+                    style={{ background: 'transparent' }}
                 >
                     <div>
                         <img
@@ -113,7 +115,7 @@ class PersistentDrawerRight extends React.Component {
                             style={{
                                 height: '100px',
                                 width: '100px',
-                                marginLeft: '20px'
+                                marginLeft: '20px',
                             }}
                         />
                         <IconButton
@@ -125,10 +127,12 @@ class PersistentDrawerRight extends React.Component {
                                 open && classes.hide
                             )}
                         >
-                            <MenuIcon style={{
-                              color: '#333',
-                              fontSize: '30px'
-                            }}/>
+                            <MenuIcon
+                                style={{
+                                    color: '#333',
+                                    fontSize: '30px',
+                                }}
+                            />
                         </IconButton>
                     </div>
                 </AppBar>
@@ -153,32 +157,55 @@ class PersistentDrawerRight extends React.Component {
                     </div>
                     <Divider />
                     <List>
-                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map(
-                            (text, index) => (
-                                <ListItem button key={text}>
-                                    <ListItemIcon>
-                                        {index % 2 === 0 ? (
-                                            <InboxIcon />
-                                        ) : (
-                                            <MailIcon />
-                                        )}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} />
-                                </ListItem>
-                            )
-                        )}
+                        {[
+                            'Chicken Briyani',
+                            'Mutton Briyani',
+                            'Prawn Briyani',
+                            'Egg Briyani',
+                            'Veg Briyani',
+                        ].map((text, index) => (
+                            <ListItem button key={text}>
+                                <ListItemText primary={text} />
+                            </ListItem>
+                        ))}
                     </List>
                     <Divider />
                     <List>
-                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                        {[
+                            'Aloo Paratha',
+                            'Tandoori Platter',
+                            'Veg Thalli',
+                            'Non-Veg Thalli',
+                        ].map((text, index) => (
                             <ListItem button key={text}>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? (
-                                        <InboxIcon />
-                                    ) : (
-                                        <MailIcon />
-                                    )}
-                                </ListItemIcon>
+                                <ListItemText primary={text} />
+                            </ListItem>
+                        ))}
+                    </List>
+                    <Divider />
+                    <List>
+                        {[
+                            'Chicken Briyani',
+                            'Mutton Briyani',
+                            'Prawn Briyani',
+                            'Egg Briyani',
+                            'Veg Briyani',
+                        ].map((text, index) => (
+                            <ListItem button key={text}>
+                                <ListItemText primary={text} />
+                            </ListItem>
+                        ))}
+                    </List>
+                    <Divider />
+                    <List>
+                        {[
+                            'Chicken Briyani',
+                            'Mutton Briyani',
+                            'Prawn Briyani',
+                            'Egg Briyani',
+                            'Veg Briyani',
+                        ].map((text, index) => (
+                            <ListItem button key={text}>
                                 <ListItemText primary={text} />
                             </ListItem>
                         ))}

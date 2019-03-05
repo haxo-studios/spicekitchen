@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { createGlobalStyle } from 'styled-components'
 // import Head from './head'
+import BGVideo from './coverVideo'
 import Nav from './nav'
 
 const GlobalStyle = createGlobalStyle`
@@ -24,13 +25,15 @@ const GlobalStyle = createGlobalStyle`
 class Layout extends Component {
     render() {
         const { children } = this.props
-
         return (
-            <div>
-                <GlobalStyle />
-                <Nav />
-                {children}
-            </div>
+            <>
+                <BGVideo />
+                <div>
+                    <GlobalStyle />
+                    <Nav />
+                    {children}
+                </div>
+            </>
         )
     }
 }
