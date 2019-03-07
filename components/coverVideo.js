@@ -4,16 +4,11 @@ import Cover from 'react-video-cover'
 class BGVideo extends Component {
     constructor(props) {
         super(props)
-
-        this.state = {
-            videoURL: 'https://vimeo.com/321129995',
-        }
     }
 
     render() {
         const videoOptions = {
-            src:
-                'https://player.vimeo.com/external/190379184.hd.mp4?s=59825eba6da26d4f767b1754dba28a7172db85cf&profile_id=119&oauth2_token_id=57447761&download=1',
+            src: this.props.videoURL,
             autoPlay: true,
             muted: true,
             loop: true,

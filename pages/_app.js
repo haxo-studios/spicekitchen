@@ -44,7 +44,9 @@ class MyApp extends App {
                         <CssBaseline />
                         {/* Pass pageContext to the _document though the renderPage enhancer
                 to render collected styles on server-side. */}
-                        <Layout>
+                        <Layout
+                            pathname={this.props.router.route}
+                        >
                             <Component
                                 pageContext={this.pageContext}
                                 {...pageProps}
