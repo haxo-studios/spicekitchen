@@ -13,6 +13,7 @@ const styles = theme => ({
         height: '60px',
         width: '100%',
         background: 'transparent',
+        zIndex: 100,
         boxShadow:
             '2px 0px 4px 1px rgba(0,0,0,0.2),\
              4px 0px 8px 0px rgba(0,0,0,0.14),\
