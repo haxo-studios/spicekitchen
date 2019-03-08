@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { withStyles } from '@material-ui/core/styles'
 
 import Grid from '@material-ui/core/Grid'
@@ -23,8 +24,8 @@ const styles = theme => ({
         textDecoration: 'None',
         color: '#F04E23',
         fontSize: '16px',
-        fontWeight: '700'
-    }
+        fontWeight: '700',
+    },
 })
 
 class BottomNav extends React.Component {
@@ -58,7 +59,7 @@ class BottomNav extends React.Component {
                                 xs={6}
                                 style={{
                                     textAlign: 'center',
-                                    borderRight: '1px solid #F04E23'
+                                    borderRight: '1px solid #F04E23',
                                 }}
                             >
                                 <a href="#">
@@ -70,7 +71,7 @@ class BottomNav extends React.Component {
                                 xs={6}
                                 style={{
                                     textAlign: 'center',
-                                    borderRight: '1px solid #F04E23'
+                                    borderRight: '1px solid #F04E23',
                                 }}
                             >
                                 <a href="#">
@@ -80,8 +81,8 @@ class BottomNav extends React.Component {
                         </Grid>
                     </Grid>
                     <Grid item xs={4} />
-                    <Grid item xs={4} >
-                    <Grid
+                    <Grid item xs={4}>
+                        <Grid
                             container
                             direction="row"
                             justify="center"
@@ -95,7 +96,7 @@ class BottomNav extends React.Component {
                                 xs={6}
                                 style={{
                                     textAlign: 'center',
-                                    borderLeft: '1px solid #F04E23'
+                                    borderLeft: '1px solid #F04E23',
                                 }}
                             >
                                 <a href="#" className={classes.link}>
@@ -108,13 +109,15 @@ class BottomNav extends React.Component {
                                 xs={6}
                                 style={{
                                     textAlign: 'center',
-                                    borderLeft: '1px solid #F04E23'
+                                    borderLeft: '1px solid #F04E23',
                                 }}
                             >
-                                <a href="#"  className={classes.link}>
-                                    {/* <FaLinkedinIn size="2rem" color="#F04E23" /> */}
-                                    About Us
-                                </a>
+                                <Link href="/about">
+                                    <a href="#" className={classes.link}>
+                                        {/* <FaLinkedinIn size="2rem" color="#F04E23" /> */}
+                                        About Us
+                                    </a>
+                                </Link>
                             </Grid>
                         </Grid>
                     </Grid>

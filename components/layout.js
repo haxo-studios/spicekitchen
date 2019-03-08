@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { createGlobalStyle } from 'styled-components'
 // import Head from './head'
 import BGVideo from './coverVideo'
+import CoverImage from './coverImage'
 import Nav from './nav'
 import BottomNav from './bottomNav'
 
@@ -30,20 +31,21 @@ class Layout extends Component {
     }
 
     updateVideo = url => {
-        console.log('>>> ',url);
+        console.log('>>> ', url)
         this.setState({
-            videoURL: url
+            videoURL: url,
         })
-        console.log(this.state);
-        
+        console.log(this.state)
     }
 
     render() {
         const { children, pathname } = this.props
+        const isIndex = pathname === '/'
+        console.log('>>', isIndex)
 
         return (
             <>
-                <BGVideo videoURL={this.state.videoURL} />
+                {isIndex ? <BGVideo videoURL={this.state.videoURL} /> : <></>}
                 <div>
                     <GlobalStyle />
                     <Nav pathname={pathname} updateVideo={this.updateVideo} />
