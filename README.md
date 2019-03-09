@@ -3,7 +3,6 @@ Live Demo: To Be Launched
 
 ## Command Prompt Setup
 
-install dependencies
 * npm install 
 * npm install --dev 
 <p> OR </p>
