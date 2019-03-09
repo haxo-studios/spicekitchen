@@ -30,7 +30,7 @@ const styles = theme => ({
 
 class BottomNav extends React.Component {
     render() {
-        const { classes, theme } = this.props
+        const { classes, pathname } = this.props
         return (
             <div className={classes.footer}>
                 <Grid
@@ -101,7 +101,9 @@ class BottomNav extends React.Component {
                             >
                                 <a href="#" className={classes.link}>
                                     {/* <FaFacebookF size="2rem" color="#F04E23" /> */}
-                                    Contact Us
+                                    {pathname != '/about'
+                                        ? 'Contact Us'
+                                        : 'View Menu'}
                                 </a>
                             </Grid>
                             <Grid
@@ -115,7 +117,9 @@ class BottomNav extends React.Component {
                                 <Link href="/about">
                                     <a href="#" className={classes.link}>
                                         {/* <FaLinkedinIn size="2rem" color="#F04E23" /> */}
-                                        About Us
+                                        {pathname != '/about'
+                                            ? 'About Us'
+                                            : 'Contact Us'}
                                     </a>
                                 </Link>
                             </Grid>

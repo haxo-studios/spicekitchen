@@ -14,10 +14,14 @@ import Grid from '@material-ui/core/Grid'
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        position: 'fixed',
+        display: 'flex',
+        position: 'absolute',
+        height: '100%',
+    },
+    cardbg: {
         width: '100%',
         height: '100%',
-        backgroundImage: "url('/static/bgimage.jpg')",
+        backgroundImage: "url('/static/cardbg.jpg')",
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -26,8 +30,8 @@ const styles = theme => ({
         minWidth: 275,
         zIndex: 100,
         marginTop: '175px',
-        marginLeft: '50px',
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
     },
     bullet: {
         display: 'inline-block',
@@ -54,6 +58,7 @@ const About = props => {
             <Head title="About" />
             <div className={classes.root}>
                 <Grid container>
+                    <Grid item xs={1} />
                     <Grid item xs={4}>
                         <Card className={classes.card}>
                             <CardContent>
@@ -81,6 +86,8 @@ const About = props => {
                             </CardContent>
                         </Card>
                     </Grid>
+                    <Grid item xs={1} />
+                    <Grid item xs={6} className={classes.cardbg} />
                 </Grid>
             </div>
         </>

@@ -113,7 +113,7 @@ class Nav extends React.Component {
     }
 
     render() {
-        const { classes, theme, updateVideo } = this.props
+        const { classes, theme, updateVideo, pathname } = this.props
         const { open } = this.state
 
         return (
@@ -124,7 +124,11 @@ class Nav extends React.Component {
                     className={classNames(classes.appBar, {
                         [classes.appBarShift]: open,
                     })}
-                    style={{ background: 'transparent' }}
+                    style={{
+                        background: 'transparent',
+                        height: pathname === '/about' ? '75px' : '100px',
+                        transition: 'height 300ms linear',
+                    }}
                 >
                     <div>
                         <Link href="/">
@@ -135,7 +139,12 @@ class Nav extends React.Component {
                                     height: '100px',
                                     width: '100px',
                                     marginLeft: '20px',
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    transform:
+                                        pathname === '/about'
+                                            ? 'translate3d(-10px, -12px, 0) scale(0.75)'
+                                            : 'none',
+                                    transition: 'transform 300ms linear',
                                 }}
                             />
                         </Link>
@@ -147,6 +156,12 @@ class Nav extends React.Component {
                                 classes.menuButton,
                                 open && classes.hide
                             )}
+                            style={{
+                                // marginTop:
+                                //     pathname === '/about' ? '12px' : '24px',
+                                // transition: 'margin 300ms linear',
+                                display: pathname === '/about' ? 'none' : 'inline'
+                            }}
                         >
                             <MenuIcon
                                 style={{
@@ -167,7 +182,13 @@ class Nav extends React.Component {
                         paper: classes.drawerPaper,
                     }}
                 >
-                    <div className={classes.drawerHeader}>
+                    <div
+                        className={classes.drawerHeader}
+                        style={{
+                            minHeight: pathname === '/about' ? '77px' : '102px',
+                            height: pathname === '/about' ? '77px' : '102px',
+                        }}
+                    >
                         <IconButton onClick={this.handleDrawerClose}>
                             {theme.direction === 'rtl' ? (
                                 <ChevronLeftIcon />
