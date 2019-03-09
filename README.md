@@ -1,13 +1,9 @@
 # Spice Kitchen
+Live Demo: To Be Launched
 
-Hi There, This repository contains the codebase of our Spice Kitchen Site.
+## Command Prompt Setup
 
-Live Demo: Soon to be Launched!!
-
-## Build Setup
-
-```bash
-# install dependencies
+$ install dependencies
 $ npm install # Or yarn install
 $ npm install --dev # Or yarn install
 
@@ -18,4 +14,5 @@ $ npm run dev
 $ npm run build
 $ npm start
 ```
+Esc + Ctrl C for exit 
 Detailed explanation on how things work is soon to be updated!!
