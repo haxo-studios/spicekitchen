@@ -6,7 +6,7 @@ Live Demo: To Be Launched
 install dependencies
 * npm install 
 * npm install --dev 
-OR
+<p> OR </p>
 * yarn install
 
 $ serve with hot reload at localhost:3000
@@ -18,6 +18,5 @@ $ build for production and launch server
 
 * EXIT - Esc + Ctrl C
 ```
-
 
 Detailed explanation on how things work is soon to be updated!!
