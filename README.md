@@ -3,7 +3,7 @@ Live Demo: To Be Launched
 
 ## Command Prompt Setup
 
-* install dependencies
+install dependencies
 * npm install # Or yarn install
 * npm install --dev # Or yarn install
 
@@ -14,5 +14,6 @@ $ build for production and launch server
 * npm run build
 * npm start
 ```
-Esc + Ctrl C for exit 
+* EXIT - Esc + Ctrl C
+
 Detailed explanation on how things work is soon to be updated!!
