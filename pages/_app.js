@@ -49,6 +49,7 @@ class MyApp extends App {
                         >
                             <Component
                                 pageContext={this.pageContext}
+                                pathname={this.props.router.route}
                                 {...pageProps}
                             />
                         </Layout>
