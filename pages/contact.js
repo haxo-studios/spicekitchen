@@ -1,12 +1,10 @@
 import React from 'react'
 import Head from '../components/head'
 
-const About = props => {
+export default function contact() {
     return (
         <>
-            <Head title="About" />
+            <Head title="Contact" />
         </>
     )
 }
-
-export default About
