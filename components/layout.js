@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { createGlobalStyle } from 'styled-components'
 // import Head from './head'
 import BGVideo from './coverVideo'
-import CoverImage from './coverImage'
 import Nav from './nav'
 import BottomNav from './bottomNav'
 import Banner from './banner'
@@ -50,7 +49,8 @@ class Layout extends Component {
                 <div>
                     <GlobalStyle />
                     <Nav pathname={pathname} updateVideo={this.updateVideo} />
-                    {/* <Banner pathname={pathname} /> */}
+                    {isIndex ?  <></> : <Banner pathname={pathname} /> }
+                    
                     {children}
                     <BottomNav pathname={pathname} />
                 </div>
