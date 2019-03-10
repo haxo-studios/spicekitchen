@@ -87,20 +87,41 @@ class Nav extends React.Component {
     state = {
         open: false,
         dishes: {
-            'Chicken Briyani':
-                'https://player.vimeo.com/external/164821330.hd.mp4?s=a8f966e7e48f9ce5ac1d0e0019f9a1425750cb9e&profile_id=119&oauth2_token_id=57447761&download=1',
-            Tandoori:
-                'https://player.vimeo.com/external/220260300.hd.mp4?s=e8b9a1ddb3f45083b427551a144d1ffdc093edfd&profile_id=119&oauth2_token_id=57447761&download=1',
-            'Mutton Briyani':
-                'https://player.vimeo.com/external/164821330.hd.mp4?s=a8f966e7e48f9ce5ac1d0e0019f9a1425750cb9e&profile_id=119&oauth2_token_id=57447761&download=1',
-            Cookies:
-                'https://player.vimeo.com/external/307731311.hd.mp4?s=6beaf9b10a7d66fdb562a130ec38e19041fd9b1e&profile_id=175&oauth2_token_id=57447761&download=1',
-            Sandwich:
-                'https://player.vimeo.com/external/210753630.hd.mp4?s=0989ae3bed6d7790834e3cb4c806c4c0ef984fa6&profile_id=119&oauth2_token_id=57447761&download=1',
-            'Fruit Bowl':
-                'https://player.vimeo.com/external/210753133.hd.mp4?s=881de7a305d924e1ae69fb9eda27ee73666e6aa0&profile_id=119&oauth2_token_id=57447761&download=1',
-            Barbecue:
-                'https://player.vimeo.com/external/220260309.hd.mp4?s=f983ad8dce377e2d077f992abb6e38f96c561637&profile_id=119&oauth2_token_id=57447761&download=1',
+            'Chicken Briyani': {
+                url:
+                    'https://player.vimeo.com/external/164821330.hd.mp4?s=a8f966e7e48f9ce5ac1d0e0019f9a1425750cb9e&profile_id=119&oauth2_token_id=57447761&download=1',
+                price: '$ 09.50',
+            },
+            Tandoori: {
+                url:
+                    'https://player.vimeo.com/external/220260300.hd.mp4?s=e8b9a1ddb3f45083b427551a144d1ffdc093edfd&profile_id=119&oauth2_token_id=57447761&download=1',
+                price: '$ 10.00',
+            },
+            'Mutton Briyani': {
+                url:
+                    'https://player.vimeo.com/external/164821330.hd.mp4?s=a8f966e7e48f9ce5ac1d0e0019f9a1425750cb9e&profile_id=119&oauth2_token_id=57447761&download=1',
+                price: '$ 11.50',
+            },
+            Cookies: {
+                url:
+                    'https://player.vimeo.com/external/307731311.hd.mp4?s=6beaf9b10a7d66fdb562a130ec38e19041fd9b1e&profile_id=175&oauth2_token_id=57447761&download=1',
+                price: '$ 04.99',
+            },
+            Sandwich: {
+                url:
+                    'https://player.vimeo.com/external/210753630.hd.mp4?s=0989ae3bed6d7790834e3cb4c806c4c0ef984fa6&profile_id=119&oauth2_token_id=57447761&download=1',
+                price: '$ 06.00',
+            },
+            'Fruit Bowl': {
+                url:
+                    'https://player.vimeo.com/external/210753133.hd.mp4?s=881de7a305d924e1ae69fb9eda27ee73666e6aa0&profile_id=119&oauth2_token_id=57447761&download=1',
+                price: '$ 07.50',
+            },
+            Barbecue: {
+                url:
+                    'https://player.vimeo.com/external/220260309.hd.mp4?s=f983ad8dce377e2d077f992abb6e38f96c561637&profile_id=119&oauth2_token_id=57447761&download=1',
+                price: '$ 13.99',
+            },
         },
     }
 
@@ -160,7 +181,7 @@ class Nav extends React.Component {
                                 // marginTop:
                                 //     pathname === '/about' ? '12px' : '24px',
                                 // transition: 'margin 300ms linear',
-                                display: pathname === '/about' ? 'none' : 'inline'
+                                display: pathname === '/about' ? 'none' : '',
                             }}
                         >
                             <MenuIcon
@@ -204,9 +225,10 @@ class Nav extends React.Component {
                                 <ListItemText
                                     primary={text}
                                     onClick={() =>
-                                        updateVideo(this.state.dishes[text])
+                                        updateVideo(this.state.dishes[text]['url'])
                                     }
                                 />
+                                <span>{this.state.dishes[text]['price']}</span>
                             </ListItem>
                         ))}
                     </List>
