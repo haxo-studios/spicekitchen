@@ -99,12 +99,12 @@ class BottomNav extends React.Component {
                                     borderLeft: '1px solid #F04E23',
                                 }}
                             >
-                                <a href="#" className={classes.link}>
-                                    {/* <FaFacebookF size="2rem" color="#F04E23" /> */}
-                                    {pathname != '/about'
-                                        ? 'Contact Us'
-                                        : 'View Menu'}
-                                </a>
+                                <Link href="/about">
+                                    <a href="#" className={classes.link}>
+                                        {/* <FaFacebookF size="2rem" color="#F04E23" /> */}
+                                        {'About Us'}
+                                    </a>
+                                </Link>
                             </Grid>
                             <Grid
                                 item
@@ -114,12 +114,10 @@ class BottomNav extends React.Component {
                                     borderLeft: '1px solid #F04E23',
                                 }}
                             >
-                                <Link href="/about">
+                                <Link href="/contact">
                                     <a href="#" className={classes.link}>
                                         {/* <FaLinkedinIn size="2rem" color="#F04E23" /> */}
-                                        {pathname != '/about'
-                                            ? 'About Us'
-                                            : 'Contact Us'}
+                                        'Contact Us'
                                     </a>
                                 </Link>
                             </Grid>
