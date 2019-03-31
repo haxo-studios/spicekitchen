@@ -147,29 +147,45 @@ class Nav extends React.Component {
                     })}
                     style={{
                         background: 'transparent',
-                        height: pathname === '/about' ? '75px' : '100px',
-                        transition: 'height 300ms linear',
+                        // height: pathname === '/about' ? '75px' : '100px',
+                        // transition: 'height 300ms linear',
                     }}
                 >
                     <div>
                         <Link href="/">
                             <img
-                                className="logo"
                                 src="/static/logo.png"
                                 style={{
                                     height: '100px',
                                     width: '100px',
                                     marginLeft: '20px',
                                     cursor: 'pointer',
-                                    transform:
-                                        pathname === '/about'
-                                            ? 'translate3d(-10px, -12px, 0) scale(0.75)'
-                                            : 'none',
-                                    transition: 'transform 300ms linear',
+                                    // transform:
+                                    //     pathname === '/about'
+                                    //         ? 'translate3d(-10px, -12px, 0) scale(0.75)'
+                                    //         : 'none',
+                                    // transition: 'transform 300ms linear',
                                 }}
                             />
                         </Link>
-                        <IconButton
+                        <div
+                            // color="inherit"
+                            aria-label="Open drawer"
+                            onClick={this.handleDrawerOpen}
+                            className={classNames(
+                                classes.viewMenuBtn,
+                                // open && classes.hide
+                            )}
+                            style={{
+                                // marginTop:
+                                //     pathname === '/about' ? '12px' : '24px',
+                                // transition: 'margin 300ms linear',
+                                display: pathname === '/about' ? 'none' : (open ? 'none' : 'inline'),
+                            }}
+                        >
+                            <span>VIEW MENU</span>
+                        </div>
+                        {/* <IconButton
                             color="inherit"
                             aria-label="Open drawer"
                             onClick={this.handleDrawerOpen}

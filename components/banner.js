@@ -115,7 +115,7 @@ class About extends React.Component {
                             pathname === '/contact'
                                 ? 'translate3d(-101%, 0, 0)'
                                 : 'none',
-                        transition: 'transform 500ms ease-in',
+                        // transition: 'transform 500ms ease-in',
                     }}
                 >
                     <div className={classes.cardbg} style={{}} />
