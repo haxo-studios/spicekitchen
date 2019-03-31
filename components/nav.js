@@ -38,11 +38,6 @@ const styles = theme => ({
         }),
         marginRight: drawerWidth,
     },
-    menuButton: {
-        display: 'inline',
-        float: 'right',
-        margin: '24px 20px 0px 0px;',
-    },
     hide: {
         display: 'none',
     },
@@ -80,6 +75,21 @@ const styles = theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
         marginRight: 0,
+    },
+    viewMenuBtn: {
+        color: '#120052',
+        display: 'inline',
+        float: 'right',
+        margin: '37px 15px 0 0',
+        width: '160px',
+        height: '30px',
+        fontFamily: 'Gotham',
+        fontSize: '26px',
+        fontWeight: '400',
+        cursor: 'pointer',
+        '&:hover': {
+            textShadow: '#00c2ba 3px 3px'
+        }
     },
 })
 
@@ -206,7 +216,7 @@ class Nav extends React.Component {
                                     fontSize: '30px',
                                 }}
                             />
-                        </IconButton>
+                        </IconButton> */}
                     </div>
                 </AppBar>
 
@@ -241,7 +251,9 @@ class Nav extends React.Component {
                                 <ListItemText
                                     primary={text}
                                     onClick={() =>
-                                        updateVideo(this.state.dishes[text]['url'])
+                                        updateVideo(
+                                            this.state.dishes[text]['url']
+                                        )
                                     }
                                 />
                                 <span>{this.state.dishes[text]['price']}</span>
