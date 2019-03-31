@@ -22,9 +22,12 @@ const styles = theme => ({
     },
     link: {
         textDecoration: 'None',
-        color: '#F04E23',
+        color: '#120052',
         fontSize: '16px',
         fontWeight: '700',
+        '&:hover': {
+            textShadow: '#00c2ba 2px 2px',
+        },
     },
 })
 
@@ -63,7 +66,7 @@ class BottomNav extends React.Component {
                                 }}
                             >
                                 <a href="#">
-                                    <FaFacebookF size="2rem" color="#F04E23" />
+                                    <FaFacebookF size="2rem" color="#120052" />
                                 </a>
                             </Grid>
                             <Grid
@@ -75,7 +78,7 @@ class BottomNav extends React.Component {
                                 }}
                             >
                                 <a href="#">
-                                    <FaLinkedinIn size="2rem" color="#F04E23" />
+                                    <FaLinkedinIn size="2rem" color="#120052" />
                                 </a>
                             </Grid>
                         </Grid>
@@ -96,7 +99,7 @@ class BottomNav extends React.Component {
                                 xs={6}
                                 style={{
                                     textAlign: 'center',
-                                    borderLeft: '1px solid #F04E23',
+                                    borderLeft: '1px solid #120052',
                                 }}
                             >
                                 <Link href="/about">
@@ -111,13 +114,13 @@ class BottomNav extends React.Component {
                                 xs={6}
                                 style={{
                                     textAlign: 'center',
-                                    borderLeft: '1px solid #F04E23',
+                                    borderLeft: '1px solid #120052',
                                 }}
                             >
                                 <Link href="/contact">
                                     <a href="#" className={classes.link}>
                                         {/* <FaLinkedinIn size="2rem" color="#F04E23" /> */}
-                                        'Contact Us'
+                                        Contact Us
                                     </a>
                                 </Link>
                             </Grid>
