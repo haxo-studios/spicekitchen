@@ -147,7 +147,8 @@ class Nav extends React.Component {
     tick() {
         let currentVideo = this.state.active;
         let dishesList = Object.keys(this.state.dishes)
-        let currentVideoIndex = dishesList.findIndex(currentVideo)
+        console.log(dishesList, currentVideo);
+        let currentVideoIndex = dishesList.indexOf(currentVideo)
         let nextVideo = dishesList[currentVideoIndex + 1]
         let nextURL = this.state.dishes[nextVideo]["url"]
         this.setState(prevState => ({
@@ -157,7 +158,7 @@ class Nav extends React.Component {
     }
 
     componentDidMount() {
-        this.interval = setInterval(() => this.tick(), 1000)
+        this.interval = setInterval(() => this.tick(), 5000)
     }
 
     componentWillUnmount() {
