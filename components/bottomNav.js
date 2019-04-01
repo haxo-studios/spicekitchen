@@ -62,7 +62,7 @@ class BottomNav extends React.Component {
                                 xs={6}
                                 style={{
                                     textAlign: 'center',
-                                    borderRight: '1px solid #F04E23',
+                                    borderRight: '1px solid #120052',
                                 }}
                             >
                                 <a href="#">
@@ -74,7 +74,7 @@ class BottomNav extends React.Component {
                                 xs={6}
                                 style={{
                                     textAlign: 'center',
-                                    borderRight: '1px solid #F04E23',
+                                    borderRight: '1px solid #120052',
                                 }}
                             >
                                 <a href="#">

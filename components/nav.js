@@ -137,33 +137,31 @@ class Nav extends React.Component {
     }
 
     handleDrawerOpen = () => {
+        this.interval = setInterval(() => this.tick(), 5000)
         this.setState({ open: true })
     }
 
     handleDrawerClose = () => {
+        clearInterval(this.interval)
         this.setState({ open: false })
     }
 
     tick() {
-        let currentVideo = this.state.active;
         let dishesList = Object.keys(this.state.dishes)
-        console.log(dishesList, currentVideo);
-        let currentVideoIndex = dishesList.indexOf(currentVideo)
-        let nextVideo = dishesList[currentVideoIndex + 1]
-        let nextURL = this.state.dishes[nextVideo]["url"]
+        let currentVideoIndex = dishesList.indexOf(this.state.active)
+        let nextVideo
+        if (currentVideoIndex == dishesList.length - 1) {
+            nextVideo = dishesList[0]
+        } else {
+            nextVideo = dishesList[currentVideoIndex + 1]
+        }
+        let nextURL = this.state.dishes[nextVideo]['url']
         this.setState(prevState => ({
             active: nextVideo,
         }))
         this.props.updateVideo(nextURL)
     }
 
-    componentDidMount() {
-        this.interval = setInterval(() => this.tick(), 5000)
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.interval)
-    }
     render() {
         const { classes, theme, updateVideo, pathname } = this.props
         const { open } = this.state
