@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 class Layout extends Component {
     state = {
         videoURL:
-            'https://player.vimeo.com/external/190379184.hd.mp4?s=59825eba6da26d4f767b1754dba28a7172db85cf&profile_id=119&oauth2_token_id=57447761&download=1',
+            'https://player.vimeo.com/play/1287210985?s=328392986_1554430302_13d32d540db9e06485046545aea817bd&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
     }
 
     updateVideo = url => {
