@@ -97,48 +97,53 @@ const styles = theme => ({
 class Nav extends React.Component {
     state = {
         open: false,
-        active: 'Chicken Briyani',
+        active: 'Aloo',
         dishes: {
-            'Chicken Briyani': {
+            'Veg Thali': {
                 url:
-                    'https://player.vimeo.com/external/164821330.hd.mp4?s=a8f966e7e48f9ce5ac1d0e0019f9a1425750cb9e&profile_id=119&oauth2_token_id=57447761&download=1',
+                    'https://player.vimeo.com/play/1287235106?s=328398123_1554430534_5c9a6abfb09a129a0d855cdb21e5f02d&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
                 price: '$ 09.50',
             },
-            Tandoori: {
+            'Tandoori Platter': {
                 url:
-                    'https://player.vimeo.com/external/220260300.hd.mp4?s=e8b9a1ddb3f45083b427551a144d1ffdc093edfd&profile_id=119&oauth2_token_id=57447761&download=1',
+                    'https://player.vimeo.com/play/1287230934?s=328397186_1554430679_b0023e46d8861e655662fab147518b9f&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
                 price: '$ 10.00',
             },
-            'Mutton Briyani': {
+            'Special Thalli': {
                 url:
-                    'https://player.vimeo.com/external/164821330.hd.mp4?s=a8f966e7e48f9ce5ac1d0e0019f9a1425750cb9e&profile_id=119&oauth2_token_id=57447761&download=1',
+                    'https://player.vimeo.com/play/1287227235?s=328396579_1554430886_728631bdda4ee70f709975731fdbe121&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
                 price: '$ 11.50',
             },
-            Cookies: {
+            'Samosa': {
                 url:
-                    'https://player.vimeo.com/external/307731311.hd.mp4?s=6beaf9b10a7d66fdb562a130ec38e19041fd9b1e&profile_id=175&oauth2_token_id=57447761&download=1',
+                    'https://player.vimeo.com/play/1287222124?s=328395792_1554430922_013cc95182fbbed40bc932cd36e23f9a&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
                 price: '$ 04.99',
             },
-            Sandwich: {
+            'Mix Thalli' : {
                 url:
-                    'https://player.vimeo.com/external/210753630.hd.mp4?s=0989ae3bed6d7790834e3cb4c806c4c0ef984fa6&profile_id=119&oauth2_token_id=57447761&download=1',
+                    'https://player.vimeo.com/play/1287219068?s=328394588_1554430948_51a0f1512943c76f726c6868fb644d9e&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
                 price: '$ 06.00',
             },
-            'Fruit Bowl': {
+            'Non-Veg Thalli': {
                 url:
                     'https://player.vimeo.com/external/210753133.hd.mp4?s=881de7a305d924e1ae69fb9eda27ee73666e6aa0&profile_id=119&oauth2_token_id=57447761&download=1',
                 price: '$ 07.50',
             },
-            Barbecue: {
+            Dosa: {
                 url:
-                    'https://player.vimeo.com/external/220260309.hd.mp4?s=f983ad8dce377e2d077f992abb6e38f96c561637&profile_id=119&oauth2_token_id=57447761&download=1',
+                    'https://player.vimeo.com/play/1287205491?s=328391099_1554429868_241a498adcb94a27a6cb824ea687dccc&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+                price: '$ 13.99',
+            },
+            Aloo: {
+                url:
+                    'https://player.vimeo.com/play/1287187367?s=328389004_1554429936_739689e9724206e78685c15d26b349e1&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
                 price: '$ 13.99',
             },
         },
     }
 
     handleDrawerOpen = () => {
-        this.interval = setInterval(() => this.tick(), 5000)
+        this.interval = setInterval(() => this.tick(), 10000)
         this.setState({ open: true })
     }
 
