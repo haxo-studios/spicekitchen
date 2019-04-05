@@ -25,6 +25,7 @@ const styles = theme => ({
         color: '#120052',
         fontSize: '16px',
         fontWeight: '700',
+        fontFamily: 'Gotham',
         '&:hover': {
             textShadow: '#00c2ba 2px 2px',
         },
@@ -94,9 +95,12 @@ class BottomNav extends React.Component {
                                 height: '100%',
                             }}
                         >
+                            <Grid item xs={2}>
+
+                            </Grid>
                             <Grid
                                 item
-                                xs={6}
+                                xs={4}
                                 style={{
                                     textAlign: 'center',
                                     borderLeft: '1px solid #120052',
@@ -105,13 +109,13 @@ class BottomNav extends React.Component {
                                 <Link href="/about">
                                     <a href="#" className={classes.link}>
                                         {/* <FaFacebookF size="2rem" color="#F04E23" /> */}
-                                        {'About Us'}
+                                        {'ABOUT US'}
                                     </a>
                                 </Link>
                             </Grid>
                             <Grid
                                 item
-                                xs={6}
+                                xs={4}
                                 style={{
                                     textAlign: 'center',
                                     borderLeft: '1px solid #120052',
@@ -120,7 +124,7 @@ class BottomNav extends React.Component {
                                 <Link href="/contact">
                                     <a href="#" className={classes.link}>
                                         {/* <FaLinkedinIn size="2rem" color="#F04E23" /> */}
-                                        Contact Us
+                                        CONTACT US
                                     </a>
                                 </Link>
                             </Grid>

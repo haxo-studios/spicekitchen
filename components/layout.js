@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 class Layout extends Component {
     state = {
         videoURL:
-            'https://player.vimeo.com/play/1287210985?s=328392986_1554430302_13d32d540db9e06485046545aea817bd&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+            'https://player.vimeo.com/play/232636299?s=88238381_1554465336_e4dad605e437685e4f3b6a008e9cc21c&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
     }
 
     updateVideo = url => {
@@ -49,8 +49,8 @@ class Layout extends Component {
                 <div>
                     <GlobalStyle />
                     <Nav pathname={pathname} updateVideo={this.updateVideo} />
-                    {isIndex ?  <></> : <Banner pathname={pathname} /> }
-                    
+                    {isIndex ? <></> : <Banner pathname={pathname} />}
+
                     {children}
                     <BottomNav pathname={pathname} />
                 </div>

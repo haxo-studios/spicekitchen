@@ -18,7 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
 
-const drawerWidth = 240
+const drawerWidth = 317
 
 const styles = theme => ({
     root: {
@@ -29,7 +29,7 @@ const styles = theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        'boxShadow': 'none'
+        boxShadow: 'none',
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -92,57 +92,64 @@ const styles = theme => ({
             textShadow: '#00c2ba 3px 3px',
         },
     },
+    listItem: {
+        '& span': {
+            fontFamily: 'Gotham',
+            fontSize: '18px',
+        },
+    },
 })
 
 class Nav extends React.Component {
     state = {
         open: false,
-        active: 'Aloo',
+        active: 'Veg Thali',
         dishes: {
-            'Veg Thali': {
+            // 'Chicken Briyani': {
+            //     url:
+            //         'https://player.vimeo.com/play/1288367392?s=328615335_1554461511_304ec168c272714cb6271da7d7065f76&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+            //     price: '$ 11.95',
+            // },
+            // 'Aloo Paratha': {
+            //     url:
+            //         'https://player.vimeo.com/play/1288300530?s=328605133_1554462323_5f08531a028613ba00426dce173f5b3e&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+            //     price: '$ 07.50',
+            // },
+            'Samosa Chat': {
                 url:
-                    'https://player.vimeo.com/play/1287235106?s=328398123_1554430534_5c9a6abfb09a129a0d855cdb21e5f02d&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-                price: '$ 09.50',
+                    'https://player.vimeo.com/play/1288343393?s=328611999_1554465942_f0d5af53066a3b77aeb50a9ac0e0c3ef&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+                price: '$ 07.95',
+            },
+            'Mix Thali': {
+                url:
+                    'https://player.vimeo.com/play/1288347113?s=328611974_1554466052_e441ba054a9acc615263ac6a6dd259e4&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+                price: '$ 10.50',
             },
             'Tandoori Platter': {
                 url:
-                    'https://player.vimeo.com/play/1287230934?s=328397186_1554430679_b0023e46d8861e655662fab147518b9f&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-                price: '$ 10.00',
+                    'https://player.vimeo.com/play/1288366047?s=328615288_1554465767_adae8fd5f6ad7da209bcbd9b17f2616f&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+                price: '$ 12.95',
             },
-            'Special Thalli': {
+            // 'Special Thali': {
+            //     url:
+            //         'https://player.vimeo.com/play/1288348550?s=328613414_1554464826_7f22ab1541eddd813773264f0fa39cda&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+            //     price: '$ 12.95',
+            // },
+            // 'Dosa': {
+            //     url:
+            //         'https://player.vimeo.com/play/1288320793?s=328605920_1554464942_f8a7caa21440815bdf84e3b4f58f1870&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+            //     price: '$ 07.95',
+            // },
+            'Veg Thali': {
                 url:
-                    'https://player.vimeo.com/play/1287227235?s=328396579_1554430886_728631bdda4ee70f709975731fdbe121&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-                price: '$ 11.50',
-            },
-            'Samosa': {
-                url:
-                    'https://player.vimeo.com/play/1287222124?s=328395792_1554430922_013cc95182fbbed40bc932cd36e23f9a&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-                price: '$ 04.99',
-            },
-            'Mix Thalli' : {
-                url:
-                    'https://player.vimeo.com/play/1287219068?s=328394588_1554430948_51a0f1512943c76f726c6868fb644d9e&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-                price: '$ 06.00',
-            },
-            'Non-Veg Thalli': {
-                url:
-                    'https://player.vimeo.com/external/210753133.hd.mp4?s=881de7a305d924e1ae69fb9eda27ee73666e6aa0&profile_id=119&oauth2_token_id=57447761&download=1',
-                price: '$ 07.50',
-            },
-            Dosa: {
-                url:
-                    'https://player.vimeo.com/play/1287205491?s=328391099_1554429868_241a498adcb94a27a6cb824ea687dccc&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-                price: '$ 13.99',
-            },
-            Aloo: {
-                url:
-                    'https://player.vimeo.com/play/1287187367?s=328389004_1554429936_739689e9724206e78685c15d26b349e1&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-                price: '$ 13.99',
+                    'https://player.vimeo.com/play/1288367392?s=328615335_1554466004_3b5653f23289e97a0bbd7bb9d6c6da47&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+                price: '$ 09.95',
             },
         },
     }
 
     handleDrawerOpen = () => {
+        this.tick()
         this.interval = setInterval(() => this.tick(), 10000)
         this.setState({ open: true })
     }
@@ -273,18 +280,35 @@ class Nav extends React.Component {
                                 <ChevronRightIcon />
                             )}
                         </IconButton>
+                        <span
+                            style={{
+                                fontFamily: 'Gotham',
+                                fontSize: '24px',
+                                marginLeft: '25%',
+                            }}
+                        >
+                            Menu
+                        </span>
                     </div>
                     <Divider />
                     <List>
                         {Object.keys(this.state.dishes).map((text, index) => (
-                            <ListItem button key={text}>
+                            <ListItem
+                                button
+                                key={text}
+                                onClick={() =>
+                                    updateVideo(this.state.dishes[text]['url'])
+                                }
+                                style={{
+                                    padding: '5px 16px 5px 16px',
+                                    height: '50px',
+                                    fontFamily: 'Gotham',
+                                    fontSize: '18px',
+                                }}
+                            >
                                 <ListItemText
                                     primary={text}
-                                    onClick={() =>
-                                        updateVideo(
-                                            this.state.dishes[text]['url']
-                                        )
-                                    }
+                                    className={classes.listItem}
                                 />
                                 <span>{this.state.dishes[text]['price']}</span>
                             </ListItem>
