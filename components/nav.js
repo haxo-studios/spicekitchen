@@ -105,44 +105,36 @@ class Nav extends React.Component {
         open: false,
         active: 'Veg Thali',
         dishes: {
-            // 'Chicken Briyani': {
-            //     url:
-            //         'https://player.vimeo.com/play/1288367392?s=328615335_1554461511_304ec168c272714cb6271da7d7065f76&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-            //     price: '$ 11.95',
-            // },
-            // 'Aloo Paratha': {
-            //     url:
-            //         'https://player.vimeo.com/play/1288300530?s=328605133_1554462323_5f08531a028613ba00426dce173f5b3e&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-            //     price: '$ 07.50',
-            // },
+            'Chicken Briyani': {
+                url: '328605174',
+                price: '$ 11.95',
+            },
+            'Aloo Paratha': {
+                url: '328605133',
+                price: '$ 07.50',
+            },
             'Samosa Chat': {
-                url:
-                    'https://player.vimeo.com/play/1288343393?s=328611999_1554465942_f0d5af53066a3b77aeb50a9ac0e0c3ef&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+                url: '328611999',
                 price: '$ 07.95',
             },
             'Mix Thali': {
-                url:
-                    'https://player.vimeo.com/play/1288347113?s=328611974_1554466052_e441ba054a9acc615263ac6a6dd259e4&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+                url: '328611974',
                 price: '$ 10.50',
             },
             'Tandoori Platter': {
-                url:
-                    'https://player.vimeo.com/play/1288366047?s=328615288_1554465767_adae8fd5f6ad7da209bcbd9b17f2616f&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+                url: '328615288',
                 price: '$ 12.95',
             },
-            // 'Special Thali': {
-            //     url:
-            //         'https://player.vimeo.com/play/1288348550?s=328613414_1554464826_7f22ab1541eddd813773264f0fa39cda&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-            //     price: '$ 12.95',
-            // },
-            // 'Dosa': {
-            //     url:
-            //         'https://player.vimeo.com/play/1288320793?s=328605920_1554464942_f8a7caa21440815bdf84e3b4f58f1870&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
-            //     price: '$ 07.95',
-            // },
+            'Special Thali': {
+                url: '328613414',
+                price: '$ 12.95',
+            },
+            Dosa: {
+                url: '328605920',
+                price: '$ 07.95',
+            },
             'Veg Thali': {
-                url:
-                    'https://player.vimeo.com/play/1288367392?s=328615335_1554466004_3b5653f23289e97a0bbd7bb9d6c6da47&loc=external&context=Vimeo%5CController%5CClipController.main&download=1',
+                url: '328615335',
                 price: '$ 09.95',
             },
         },
@@ -150,7 +142,7 @@ class Nav extends React.Component {
 
     handleDrawerOpen = () => {
         this.tick()
-        this.interval = setInterval(() => this.tick(), 10000)
+        this.interval = setInterval(() => this.tick(), 12000)
         this.setState({ open: true })
     }
 
@@ -169,6 +161,8 @@ class Nav extends React.Component {
             nextVideo = dishesList[currentVideoIndex + 1]
         }
         let nextURL = this.state.dishes[nextVideo]['url']
+        console.log(nextURL, nextVideo)
+
         this.setState(prevState => ({
             active: nextVideo,
         }))

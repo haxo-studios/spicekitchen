@@ -1,5 +1,29 @@
 import React, { Component } from 'react'
-import Cover from 'react-video-cover'
+import { withStyles } from '@material-ui/core/styles'
+// import Cover from 'react-video-cover'
+
+const styles = theme => ({
+    videoContainer: {
+        position: 'absolute',
+        zIndex: '-1',
+        top: '0',
+        bottom: '0',
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden',
+        // pointerEvents: 'none',
+        '& iframe': {
+            width: '105vw',
+            height: '58.25vw',
+            minHeight: '100vh',
+            minWidth: '177.77vh',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+        },
+    },
+})
 
 class BGVideo extends Component {
     constructor(props) {
@@ -7,49 +31,25 @@ class BGVideo extends Component {
     }
 
     render() {
-        const videoOptions = {
-            src: this.props.videoURL,
-            autoPlay: true,
-            muted: true,
-            loop: true,
-        }
+        const { classes, videoCode } = this.props
+        const videoURL = "https://player.vimeo.com/video/"+ videoCode +"?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&background=1";
+        // console.log('## ', videoURL);
+        
         return (
-            <div
-                className="videoContainer"
-                style={{
-                    position: 'absolute',
-                    top: '0',
-                    bottom: '0',
-                    width: '100%',
-                    height: '100%',
-                    overflow: 'hidden',
-                }}
-            >
-                <Cover
-                    videoOptions={videoOptions}
-                    remeasureOnWindowResize
-                    getResizeNotifier={resizeNotifier => {
-                        this.setState({
-                            resizeNotifier,
-                        })
-                    }}
+            <div className={classes.videoContainer}>
+                <iframe
+                    src={videoURL}
+                    frameBorder="0"
+                    allow="autoplay"
+                    allowFullScreen
+                    webkitallowfullscreen="true"
+                    mozallowfullscreen="true"
+                />
+                <div
                     style={{
-                        objectFit: 'cover',
-                        // width: '100%',
-                        // height: '100%',
-
-                        minWidth: '100%',
-                        minHeight: '100%',
-
-                        /* Setting width & height to auto prevents the browser from stretching or squishing the video */
-                        width: 'auto',
-                        height: 'auto',
-
-                        /* Center the video */
                         position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%,-50%)',
+                        width: '100%',
+                        height: '100%',
                     }}
                 />
             </div>
@@ -57,4 +57,4 @@ class BGVideo extends Component {
     }
 }
 
-export default BGVideo
+export default withStyles(styles)(BGVideo)
