@@ -21,6 +21,18 @@ const styles = theme => ({
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
+            [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
+                width: '145vw',
+                height: '99.25vw',
+            },
+            [theme.breakpoints.down('md') && theme.breakpoints.up('sm')]: {
+                width: '145vw',
+                height: '85.25vw',
+            },
+            [theme.breakpoints.up('md')]: {
+                width: '105vw',
+                height: '58.25vw',
+            },
         },
     },
 })
@@ -32,9 +44,12 @@ class BGVideo extends Component {
 
     render() {
         const { classes, videoCode } = this.props
-        const videoURL = "https://player.vimeo.com/video/"+ videoCode +"?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&background=1";
+        const videoURL =
+            'https://player.vimeo.com/video/' +
+            videoCode +
+            '?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&background=1'
         // console.log('## ', videoURL);
-        
+
         return (
             <div className={classes.videoContainer}>
                 <iframe
