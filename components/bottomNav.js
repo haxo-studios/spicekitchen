@@ -30,6 +30,21 @@ const styles = theme => ({
             textShadow: '#00c2ba 2px 2px',
         },
     },
+    socialLink: {
+        [theme.breakpoints.down('sm')]: {
+            width: '100px',
+        },
+    },
+    navLinkContainer: {
+        [theme.breakpoints.down('sm')]: {
+            maringTop: '20px'
+        },
+    },
+    navLink: {
+        [theme.breakpoints.down('sm')]: {
+            width: '150px'
+        },
+    },
 })
 
 class BottomNav extends React.Component {
@@ -48,7 +63,7 @@ class BottomNav extends React.Component {
                         margin: '0',
                     }}
                 >
-                    <Grid item xs={4}>
+                    <Grid item sm={4} xs={12}>
                         <Grid
                             container
                             direction="row"
@@ -60,7 +75,8 @@ class BottomNav extends React.Component {
                         >
                             <Grid
                                 item
-                                xs={6}
+                                sm={6}
+                                className={classes.socialLink}
                                 style={{
                                     textAlign: 'center',
                                     borderRight: '1px solid #120052',
@@ -72,10 +88,11 @@ class BottomNav extends React.Component {
                             </Grid>
                             <Grid
                                 item
-                                xs={6}
+                                sm={6}
+                                className={classes.socialLink}
                                 style={{
                                     textAlign: 'center',
-                                    borderRight: '1px solid #120052',
+                                    // borderRight: '1px solid #120052',
                                 }}
                             >
                                 <a href="#">
@@ -84,8 +101,8 @@ class BottomNav extends React.Component {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={4} />
-                    <Grid item xs={4}>
+                    <Grid item sm={4} xs={0} />
+                    <Grid item sm={4} xs={12}>
                         <Grid
                             container
                             direction="row"
@@ -94,37 +111,49 @@ class BottomNav extends React.Component {
                             style={{
                                 height: '100%',
                             }}
+                            className={classes.navLinkContainer}
                         >
-                            <Grid item xs={2}>
-
-                            </Grid>
                             <Grid
                                 item
-                                xs={4}
+                                sm={6}
                                 style={{
                                     textAlign: 'center',
-                                    borderLeft: '1px solid #120052',
+                                    // borderLeft: '1px solid #120052',
                                 }}
+                                className={classes.navLink}
                             >
-                                <Link href={ pathname == '/about' ? '/' : '/about'}>
+                                <Link
+                                    href={pathname == '/about' ? '/' : '/about'}
+                                >
                                     <a href="#" className={classes.link}>
                                         {/* <FaFacebookF size="2rem" color="#F04E23" /> */}
-                                        { pathname == '/about' ? 'MENU' : 'ABOUT US'}
+                                        {pathname == '/about'
+                                            ? 'MENU'
+                                            : 'ABOUT US'}
                                     </a>
                                 </Link>
                             </Grid>
                             <Grid
                                 item
-                                xs={4}
+                                sm={6}
                                 style={{
                                     textAlign: 'center',
                                     borderLeft: '1px solid #120052',
                                 }}
+                                className={classes.navLink}
                             >
-                                <Link href={pathname == '/contact' ? '/' : "/contact" }>
+                                <Link
+                                    href={
+                                        pathname == '/contact'
+                                            ? '/'
+                                            : '/contact'
+                                    }
+                                >
                                     <a href="#" className={classes.link}>
                                         {/* <FaLinkedinIn size="2rem" color="#F04E23" /> */}
-                                        {pathname == '/contact' ? 'MENU' : 'CONTACT US'}
+                                        {pathname == '/contact'
+                                            ? 'MENU'
+                                            : 'CONTACT US'}
                                     </a>
                                 </Link>
                             </Grid>
