@@ -51,9 +51,13 @@ const styles = theme => ({
     },
     drawerPaper: {
         width: drawerWidth,
+        [theme.breakpoints.down('xs')]: {
+            width: '100%',
+        },
     },
     drawerHeader: {
         display: 'flex',
+        width: '100%',
         alignItems: 'center',
         padding: '0 8px',
         ...theme.mixins.toolbar,
@@ -93,6 +97,22 @@ const styles = theme => ({
         '&:hover': {
             textShadow: '#00c2ba 3px 3px',
         },
+        [theme.breakpoints.down('xs')]: {
+            marginTop: '25px',
+        },
+    },
+    menuTxt: {
+        [theme.breakpoints.down('xs')]: {
+            display: 'none',
+        },
+    },
+    menuButton: {
+        display: 'none',
+        [theme.breakpoints.down('xs')]: {
+            display: 'inline',
+            float: 'right',
+            pointerEvents: 'none',
+        },
     },
     listItem: {
         '& span': {
@@ -100,6 +120,32 @@ const styles = theme => ({
             fontSize: '18px',
         },
     },
+    sideNavTitle: {
+        fontFamily: 'Gotham',
+        fontSize: '24px',
+        marginLeft: '25%',
+        [theme.breakpoints.down('xs')]: {
+            display: 'none',
+        },
+    },
+    logo: {
+        height: '100px',
+        width: '100px',
+        marginLeft: '20px',
+        cursor: 'pointer',
+        [theme.breakpoints.down('xs')]: {
+            textAlign: 'center',
+        },
+    },
+    logoContainer: {
+        display: 'inline',
+    },
+    menuClose: {
+        [theme.breakpoints.down('xs')]: {
+            // float: 'right'
+            marginLeft: 'auto'
+        },
+    }
 })
 
 class Nav extends React.Component {
@@ -146,11 +192,13 @@ class Nav extends React.Component {
         this.tick()
         this.interval = setInterval(() => this.tick(), 12000)
         this.setState({ open: true })
+        console.log(this.interval)
     }
 
     handleDrawerClose = () => {
         clearInterval(this.interval)
         this.setState({ open: false })
+        console.log(this.interval)
     }
 
     tick() {
@@ -190,22 +238,14 @@ class Nav extends React.Component {
                     }}
                 >
                     <div>
-                        <Link href="/">
-                            <img
-                                src="/static/logo.png"
-                                style={{
-                                    height: '100px',
-                                    width: '100px',
-                                    marginLeft: '20px',
-                                    cursor: 'pointer',
-                                    // transform:
-                                    //     pathname === '/about'
-                                    //         ? 'translate3d(-10px, -12px, 0) scale(0.75)'
-                                    //         : 'none',
-                                    // transition: 'transform 300ms linear',
-                                }}
-                            />
-                        </Link>
+                        <div className={classes.logoContainer}>
+                            <Link href="/">
+                                <img
+                                    className={classes.logo}
+                                    src="/static/logo.png"
+                                />
+                            </Link>
+                        </div>
                         <div
                             // color="inherit"
                             aria-label="Open drawer"
@@ -219,37 +259,39 @@ class Nav extends React.Component {
                                 //     pathname === '/about' ? '12px' : '24px',
                                 // transition: 'margin 300ms linear',
                                 display:
-                                    pathname === '/about' || pathname === '/contact' 
+                                    pathname === '/about' ||
+                                    pathname === '/contact'
                                         ? 'none'
                                         : open
                                         ? 'none'
                                         : 'inline',
                             }}
                         >
-                            <span>VIEW MENU</span>
-                        </div>
-                        {/* <IconButton
-                            color="inherit"
-                            aria-label="Open drawer"
-                            onClick={this.handleDrawerOpen}
-                            className={classNames(
-                                classes.menuButton,
-                                open && classes.hide
-                            )}
-                            style={{
-                                // marginTop:
-                                //     pathname === '/about' ? '12px' : '24px',
-                                // transition: 'margin 300ms linear',
-                                display: pathname === '/about' ? 'none' : '',
-                            }}
-                        >
-                            <MenuIcon
+                            <span className={classes.menuTxt}>VIEW MENU</span>
+                            <IconButton
+                                color="inherit"
+                                aria-label="Open drawer"
+                                onClick={this.handleDrawerOpen}
+                                className={classNames(
+                                    classes.menuButton,
+                                    open && classes.hide
+                                )}
                                 style={{
-                                    color: '#333',
-                                    fontSize: '30px',
+                                    // marginTop:
+                                    //     pathname === '/about' ? '12px' : '24px',
+                                    // transition: 'margin 300ms linear',
+                                    display:
+                                        pathname === '/about' ? 'none' : '',
                                 }}
-                            />
-                        </IconButton> */}
+                            >
+                                <MenuIcon
+                                    style={{
+                                        color: '#333',
+                                        fontSize: '30px',
+                                    }}
+                                />
+                            </IconButton>
+                        </div>
                     </div>
                 </AppBar>
 
@@ -269,22 +311,17 @@ class Nav extends React.Component {
                             height: pathname === '/about' ? '77px' : '102px',
                         }}
                     >
-                        <IconButton onClick={this.handleDrawerClose}>
+                        <IconButton
+                            className={classes.menuClose}
+                            onClick={this.handleDrawerClose}
+                        >
                             {theme.direction === 'rtl' ? (
                                 <ChevronLeftIcon />
                             ) : (
                                 <ChevronRightIcon />
                             )}
                         </IconButton>
-                        <span
-                            style={{
-                                fontFamily: 'Gotham',
-                                fontSize: '24px',
-                                marginLeft: '25%',
-                            }}
-                        >
-                            Menu
-                        </span>
+                        <span className={classes.sideNavTitle}>Menu</span>
                     </div>
                     <Divider />
                     <List>

@@ -101,7 +101,7 @@ class BottomNav extends React.Component {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item sm={4} xs={0} />
+                    <Grid item sm={4} xs={false}/>
                     <Grid item sm={4} xs={12}>
                         <Grid
                             container
