@@ -4,7 +4,6 @@ import { createGlobalStyle } from 'styled-components'
 import BGVideo from './coverVideo'
 import Nav from './nav'
 import BottomNav from './bottomNav'
-import Banner from './banner'
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -46,7 +45,7 @@ class Layout extends Component {
                 <div>
                     <GlobalStyle />
                     <Nav pathname={pathname} updateVideo={this.updateVideo} />
-                    {isIndex ? <></> : <Banner pathname={pathname} />}
+                    {/* {isIndex ? <></> : <Banner pathname={pathname} />} */}
 
                     {children}
                     <BottomNav pathname={pathname} />

@@ -18,6 +18,8 @@ import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
 
+import { FaCaretRight } from 'react-icons/fa'
+
 const drawerWidth = 317
 
 const styles = theme => ({
@@ -161,7 +163,7 @@ class Nav extends React.Component {
             nextVideo = dishesList[currentVideoIndex + 1]
         }
         let nextURL = this.state.dishes[nextVideo]['url']
-        console.log(nextURL, nextVideo)
+        // console.log(nextURL, nextVideo)
 
         this.setState(prevState => ({
             active: nextVideo,
@@ -217,7 +219,7 @@ class Nav extends React.Component {
                                 //     pathname === '/about' ? '12px' : '24px',
                                 // transition: 'margin 300ms linear',
                                 display:
-                                    pathname === '/about'
+                                    pathname === '/about' || pathname === '/contact' 
                                         ? 'none'
                                         : open
                                         ? 'none'
@@ -290,9 +292,12 @@ class Nav extends React.Component {
                             <ListItem
                                 button
                                 key={text}
-                                onClick={() =>
+                                onClick={() => {
                                     updateVideo(this.state.dishes[text]['url'])
-                                }
+                                    this.setState(prevState => ({
+                                        active: text,
+                                    }))
+                                }}
                                 style={{
                                     padding: '5px 16px 5px 16px',
                                     height: '50px',
@@ -300,6 +305,20 @@ class Nav extends React.Component {
                                     fontSize: '18px',
                                 }}
                             >
+                                <span
+                                    style={{
+                                        marginRight: '10px',
+                                    }}
+                                >
+                                    <FaCaretRight
+                                        size="2rem"
+                                        color={
+                                            this.state.active == text
+                                                ? '#120052'
+                                                : '#D3D3D3'
+                                        }
+                                    />
+                                </span>
                                 <ListItemText
                                     primary={text}
                                     className={classes.listItem}

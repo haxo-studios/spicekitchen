@@ -106,10 +106,10 @@ class BottomNav extends React.Component {
                                     borderLeft: '1px solid #120052',
                                 }}
                             >
-                                <Link href="/about">
+                                <Link href={ pathname == '/about' ? '/' : '/about'}>
                                     <a href="#" className={classes.link}>
                                         {/* <FaFacebookF size="2rem" color="#F04E23" /> */}
-                                        {'ABOUT US'}
+                                        { pathname == '/about' ? 'MENU' : 'ABOUT US'}
                                     </a>
                                 </Link>
                             </Grid>
@@ -121,10 +121,10 @@ class BottomNav extends React.Component {
                                     borderLeft: '1px solid #120052',
                                 }}
                             >
-                                <Link href="/contact">
+                                <Link href={pathname == '/contact' ? '/' : "/contact" }>
                                     <a href="#" className={classes.link}>
                                         {/* <FaLinkedinIn size="2rem" color="#F04E23" /> */}
-                                        CONTACT US
+                                        {pathname == '/contact' ? 'MENU' : 'CONTACT US'}
                                     </a>
                                 </Link>
                             </Grid>
