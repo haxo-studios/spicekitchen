@@ -23,10 +23,19 @@ const styles = theme => ({
     aboutChild: {
         flexGrow: 0,
         flexBasis: '57%',
+        [theme.breakpoints.down('xs')]: {
+            flexBasis: '100%',
+        },
     },
     emptyChild: {
         flexGrow: 0,
         flexBasis: '43%',
+        // [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
+        //     fontSize: '22px'
+        // },
+        [theme.breakpoints.down('xs')]: {
+            flexBasis: '0%',
+        },
     },
     contactUs: {
         display: 'flex',
@@ -47,6 +56,9 @@ const styles = theme => ({
         padding: '0 10% 0 10%',
         backgroundColor: 'transparent',
         boxShadow: 'none',
+        [theme.breakpoints.down('sm')]: {
+            marginTop: '100px',
+        },
     },
     bullet: {
         display: 'inline-block',
@@ -56,6 +68,12 @@ const styles = theme => ({
     title: {
         fontSize: 35,
         textAlign: 'center',
+        [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
+            fontSize: '22px'
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '28px'
+        },
     },
     pos: {
         marginBottom: 12,
@@ -63,6 +81,12 @@ const styles = theme => ({
     content: {
         fontSize: 20,
         textAlign: 'center',
+        [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
+            fontSize: '16px'
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '12px'
+        },
     },
 })
 
