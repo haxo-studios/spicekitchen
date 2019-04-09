@@ -37,7 +37,7 @@ class Layout extends Component {
     render() {
         const { children, pathname } = this.props
         const isIndex = pathname === '/'
-        console.log('>>', isIndex)
+        // console.log('>>', isIndex)
 
         return (
             <>

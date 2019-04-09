@@ -192,13 +192,13 @@ class Nav extends React.Component {
         this.tick()
         this.interval = setInterval(() => this.tick(), 12000)
         this.setState({ open: true })
-        console.log(this.interval)
+        // console.log(this.interval)
     }
 
     handleDrawerClose = () => {
         clearInterval(this.interval)
         this.setState({ open: false })
-        console.log(this.interval)
+        // console.log(this.interval)
     }
 
     tick() {
