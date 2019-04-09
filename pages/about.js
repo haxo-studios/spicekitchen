@@ -69,10 +69,10 @@ const styles = theme => ({
         fontSize: 35,
         textAlign: 'center',
         [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
-            fontSize: '22px'
+            fontSize: '28px'
         },
         [theme.breakpoints.down('xs')]: {
-            fontSize: '28px'
+            fontSize: '22px'
         },
     },
     pos: {

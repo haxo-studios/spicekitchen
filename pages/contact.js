@@ -24,10 +24,16 @@ const styles = theme => ({
     aboutChild: {
         flexGrow: 0,
         flexBasis: '57%',
+        [theme.breakpoints.down('xs')]: {
+            flexBasis: '100%',
+        },
     },
     emptyChild: {
         flexGrow: 0,
         flexBasis: '43%',
+        [theme.breakpoints.down('xs')]: {
+            flexBasis: '0%',
+        },
     },
     contactUs: {
         display: 'flex',
@@ -48,6 +54,12 @@ const styles = theme => ({
         padding: '0 10% 0 10%',
         backgroundColor: 'transparent',
         boxShadow: 'none',
+        // [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
+        //     fontSize: '22px'
+        // },
+        [theme.breakpoints.down('sm')]: {
+            marginTop: '100px',
+        },
     },
     bullet: {
         display: 'inline-block',
@@ -57,6 +69,12 @@ const styles = theme => ({
     title: {
         fontSize: 35,
         textAlign: 'right',
+        [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
+            fontSize: '28px'
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '22px'
+        },
     },
     pos: {
         marginBottom: 12,
@@ -65,6 +83,12 @@ const styles = theme => ({
         fontSize: 20,
         marginTop: '40px',
         textAlign: 'right',
+        [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
+            fontSize: '16px'
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '12px'
+        },
     },
 })
 
@@ -92,13 +116,16 @@ class Contact extends React.Component {
                                     className={classes.content}
                                 >
                                     <span style={{}}>
-                                        Give Us a Call - 0370149003 <br/>
+                                        Give Us a Call - 0370149003 <br />
                                     </span>
 
-                                    <p style={{
-                                        marginTop: '15px'
-                                    }}>
-                                        Level 1, opp. Dan Murphys, QV Building, <br/>
+                                    <p
+                                        style={{
+                                            marginTop: '15px',
+                                        }}
+                                    >
+                                        Level 1, opp. Dan Murphys, QV Building,{' '}
+                                        <br />
                                         210 Lonsdale St. Melbourne VIC - 3000
                                     </p>
                                 </Typography>
