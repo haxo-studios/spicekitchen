@@ -4,7 +4,6 @@ import { createGlobalStyle } from 'styled-components'
 import BGVideo from './coverVideo'
 import Nav from './nav'
 import BottomNav from './bottomNav'
-import Banner from './banner'
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -26,31 +25,28 @@ const GlobalStyle = createGlobalStyle`
 
 class Layout extends Component {
     state = {
-        videoURL:
-            'https://player.vimeo.com/external/190379184.hd.mp4?s=59825eba6da26d4f767b1754dba28a7172db85cf&profile_id=119&oauth2_token_id=57447761&download=1',
+        videoCode: '328795534'
     }
 
     updateVideo = url => {
-        console.log('>>> ', url)
         this.setState({
-            videoURL: url,
+            videoCode: url,
         })
-        console.log(this.state)
     }
 
     render() {
         const { children, pathname } = this.props
         const isIndex = pathname === '/'
-        console.log('>>', isIndex)
+        // console.log('>>', isIndex)
 
         return (
             <>
-                {isIndex ? <BGVideo videoURL={this.state.videoURL} /> : <></>}
+                {isIndex ? <BGVideo videoCode={this.state.videoCode} /> : <></>}
                 <div>
                     <GlobalStyle />
                     <Nav pathname={pathname} updateVideo={this.updateVideo} />
-                    {isIndex ?  <></> : <Banner pathname={pathname} /> }
-                    
+                    {/* {isIndex ? <></> : <Banner pathname={pathname} />} */}
+
                     {children}
                     <BottomNav pathname={pathname} />
                 </div>

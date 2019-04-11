@@ -18,7 +18,9 @@ import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
 
-const drawerWidth = 240
+import { FaCaretRight } from 'react-icons/fa'
+
+const drawerWidth = 317
 
 const styles = theme => ({
     root: {
@@ -29,6 +31,7 @@ const styles = theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
+        boxShadow: 'none',
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -37,11 +40,6 @@ const styles = theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
         marginRight: drawerWidth,
-    },
-    menuButton: {
-        display: 'inline',
-        float: 'right',
-        margin: '24px 20px 0px 0px;',
     },
     hide: {
         display: 'none',
@@ -53,9 +51,13 @@ const styles = theme => ({
     },
     drawerPaper: {
         width: drawerWidth,
+        [theme.breakpoints.down('xs')]: {
+            width: '100%',
+        },
     },
     drawerHeader: {
         display: 'flex',
+        width: '100%',
         alignItems: 'center',
         padding: '0 8px',
         ...theme.mixins.toolbar,
@@ -81,56 +83,140 @@ const styles = theme => ({
         }),
         marginRight: 0,
     },
+    viewMenuBtn: {
+        color: '#120052',
+        display: 'inline',
+        float: 'right',
+        margin: '37px 15px 0 0',
+        width: '160px',
+        height: '30px',
+        fontFamily: 'Gotham',
+        fontSize: '26px',
+        fontWeight: '400',
+        cursor: 'pointer',
+        '&:hover': {
+            textShadow: '#00c2ba 3px 3px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            marginTop: '25px',
+        },
+    },
+    menuTxt: {
+        [theme.breakpoints.down('xs')]: {
+            display: 'none',
+        },
+    },
+    menuButton: {
+        display: 'none',
+        [theme.breakpoints.down('xs')]: {
+            display: 'inline',
+            float: 'right',
+            pointerEvents: 'none',
+        },
+    },
+    listItem: {
+        '& span': {
+            fontFamily: 'Gotham',
+            fontSize: '18px',
+        },
+    },
+    sideNavTitle: {
+        fontFamily: 'Gotham',
+        fontSize: '24px',
+        marginLeft: '25%',
+        [theme.breakpoints.down('xs')]: {
+            display: 'none',
+        },
+    },
+    logo: {
+        height: '100px',
+        width: '100px',
+        marginLeft: '20px',
+        cursor: 'pointer',
+        [theme.breakpoints.down('xs')]: {
+            textAlign: 'center',
+        },
+    },
+    logoContainer: {
+        display: 'inline',
+    },
+    menuClose: {
+        [theme.breakpoints.down('xs')]: {
+            // float: 'right'
+            marginLeft: 'auto'
+        },
+    }
 })
 
 class Nav extends React.Component {
     state = {
         open: false,
+        active: 'Veg Thali',
         dishes: {
             'Chicken Briyani': {
-                url:
-                    'https://player.vimeo.com/external/164821330.hd.mp4?s=a8f966e7e48f9ce5ac1d0e0019f9a1425750cb9e&profile_id=119&oauth2_token_id=57447761&download=1',
-                price: '$ 09.50',
+                url: '328605174',
+                price: '$ 11.95',
             },
-            Tandoori: {
-                url:
-                    'https://player.vimeo.com/external/220260300.hd.mp4?s=e8b9a1ddb3f45083b427551a144d1ffdc093edfd&profile_id=119&oauth2_token_id=57447761&download=1',
-                price: '$ 10.00',
-            },
-            'Mutton Briyani': {
-                url:
-                    'https://player.vimeo.com/external/164821330.hd.mp4?s=a8f966e7e48f9ce5ac1d0e0019f9a1425750cb9e&profile_id=119&oauth2_token_id=57447761&download=1',
-                price: '$ 11.50',
-            },
-            Cookies: {
-                url:
-                    'https://player.vimeo.com/external/307731311.hd.mp4?s=6beaf9b10a7d66fdb562a130ec38e19041fd9b1e&profile_id=175&oauth2_token_id=57447761&download=1',
-                price: '$ 04.99',
-            },
-            Sandwich: {
-                url:
-                    'https://player.vimeo.com/external/210753630.hd.mp4?s=0989ae3bed6d7790834e3cb4c806c4c0ef984fa6&profile_id=119&oauth2_token_id=57447761&download=1',
-                price: '$ 06.00',
-            },
-            'Fruit Bowl': {
-                url:
-                    'https://player.vimeo.com/external/210753133.hd.mp4?s=881de7a305d924e1ae69fb9eda27ee73666e6aa0&profile_id=119&oauth2_token_id=57447761&download=1',
+            'Aloo Paratha': {
+                url: '328605133',
                 price: '$ 07.50',
             },
-            Barbecue: {
-                url:
-                    'https://player.vimeo.com/external/220260309.hd.mp4?s=f983ad8dce377e2d077f992abb6e38f96c561637&profile_id=119&oauth2_token_id=57447761&download=1',
-                price: '$ 13.99',
+            'Samosa Chat': {
+                url: '328611999',
+                price: '$ 07.95',
+            },
+            'Mix Thali': {
+                url: '328611974',
+                price: '$ 10.50',
+            },
+            'Tandoori Platter': {
+                url: '328615288',
+                price: '$ 12.95',
+            },
+            'Special Thali': {
+                url: '328613414',
+                price: '$ 12.95',
+            },
+            Dosa: {
+                url: '328605920',
+                price: '$ 07.95',
+            },
+            'Veg Thali': {
+                url: '328615335',
+                price: '$ 09.95',
             },
         },
     }
 
     handleDrawerOpen = () => {
+        this.tick()
+        this.interval = setInterval(() => this.tick(), 12000)
         this.setState({ open: true })
+        // console.log(this.interval)
     }
 
     handleDrawerClose = () => {
+        clearInterval(this.interval)
         this.setState({ open: false })
+        // console.log(this.interval)
+    }
+
+    tick() {
+        let dishesList = Object.keys(this.state.dishes)
+        let currentVideoIndex = dishesList.indexOf(this.state.active)
+        let nextVideo
+        if (currentVideoIndex == dishesList.length - 1) {
+            nextVideo = dishesList[0]
+        } else {
+            nextVideo = dishesList[currentVideoIndex + 1]
+        }
+        let nextURL = this.state.dishes[nextVideo]['url']
+        // console.log(nextURL, nextVideo)
+
+        this.setState(prevState => ({
+            active: nextVideo,
+        }))
+        this.props.updateVideo(nextURL)
     }
 
     render() {
@@ -147,50 +233,65 @@ class Nav extends React.Component {
                     })}
                     style={{
                         background: 'transparent',
-                        height: pathname === '/about' ? '75px' : '100px',
-                        transition: 'height 300ms linear',
+                        // height: pathname === '/about' ? '75px' : '100px',
+                        // transition: 'height 300ms linear',
                     }}
                 >
                     <div>
-                        <Link href="/">
-                            <img
-                                className="logo"
-                                src="/static/logo.png"
-                                style={{
-                                    height: '100px',
-                                    width: '100px',
-                                    marginLeft: '20px',
-                                    cursor: 'pointer',
-                                    transform:
-                                        pathname === '/about'
-                                            ? 'translate3d(-10px, -12px, 0) scale(0.75)'
-                                            : 'none',
-                                    transition: 'transform 300ms linear',
-                                }}
-                            />
-                        </Link>
-                        <IconButton
-                            color="inherit"
+                        <div className={classes.logoContainer}>
+                            <Link href="/">
+                                <img
+                                    className={classes.logo}
+                                    src="/static/logo.png"
+                                />
+                            </Link>
+                        </div>
+                        <div
+                            // color="inherit"
                             aria-label="Open drawer"
                             onClick={this.handleDrawerOpen}
                             className={classNames(
-                                classes.menuButton,
-                                open && classes.hide
+                                classes.viewMenuBtn
+                                // open && classes.hide
                             )}
                             style={{
                                 // marginTop:
                                 //     pathname === '/about' ? '12px' : '24px',
                                 // transition: 'margin 300ms linear',
-                                display: pathname === '/about' ? 'none' : '',
+                                display:
+                                    pathname === '/about' ||
+                                    pathname === '/contact'
+                                        ? 'none'
+                                        : open
+                                        ? 'none'
+                                        : 'inline',
                             }}
                         >
-                            <MenuIcon
+                            <span className={classes.menuTxt}>VIEW MENU</span>
+                            <IconButton
+                                color="inherit"
+                                aria-label="Open drawer"
+                                onClick={this.handleDrawerOpen}
+                                className={classNames(
+                                    classes.menuButton,
+                                    open && classes.hide
+                                )}
                                 style={{
-                                    color: '#333',
-                                    fontSize: '30px',
+                                    // marginTop:
+                                    //     pathname === '/about' ? '12px' : '24px',
+                                    // transition: 'margin 300ms linear',
+                                    display:
+                                        pathname === '/about' ? 'none' : '',
                                 }}
-                            />
-                        </IconButton>
+                            >
+                                <MenuIcon
+                                    style={{
+                                        color: '#333',
+                                        fontSize: '30px',
+                                    }}
+                                />
+                            </IconButton>
+                        </div>
                     </div>
                 </AppBar>
 
@@ -210,23 +311,54 @@ class Nav extends React.Component {
                             height: pathname === '/about' ? '77px' : '102px',
                         }}
                     >
-                        <IconButton onClick={this.handleDrawerClose}>
+                        <IconButton
+                            className={classes.menuClose}
+                            onClick={this.handleDrawerClose}
+                        >
                             {theme.direction === 'rtl' ? (
                                 <ChevronLeftIcon />
                             ) : (
                                 <ChevronRightIcon />
                             )}
                         </IconButton>
+                        <span className={classes.sideNavTitle}>Menu</span>
                     </div>
                     <Divider />
                     <List>
                         {Object.keys(this.state.dishes).map((text, index) => (
-                            <ListItem button key={text}>
+                            <ListItem
+                                button
+                                key={text}
+                                onClick={() => {
+                                    updateVideo(this.state.dishes[text]['url'])
+                                    this.setState(prevState => ({
+                                        active: text,
+                                    }))
+                                }}
+                                style={{
+                                    padding: '5px 16px 5px 16px',
+                                    height: '50px',
+                                    fontFamily: 'Gotham',
+                                    fontSize: '18px',
+                                }}
+                            >
+                                <span
+                                    style={{
+                                        marginRight: '10px',
+                                    }}
+                                >
+                                    <FaCaretRight
+                                        size="2rem"
+                                        color={
+                                            this.state.active == text
+                                                ? '#120052'
+                                                : '#D3D3D3'
+                                        }
+                                    />
+                                </span>
                                 <ListItemText
                                     primary={text}
-                                    onClick={() =>
-                                        updateVideo(this.state.dishes[text]['url'])
-                                    }
+                                    className={classes.listItem}
                                 />
                                 <span>{this.state.dishes[text]['price']}</span>
                             </ListItem>
