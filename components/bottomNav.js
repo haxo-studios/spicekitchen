@@ -37,12 +37,12 @@ const styles = theme => ({
     },
     navLinkContainer: {
         [theme.breakpoints.down('sm')]: {
-            maringTop: '20px'
+            maringTop: '20px',
         },
     },
     navLink: {
         [theme.breakpoints.down('sm')]: {
-            width: '150px'
+            width: '150px',
         },
     },
 })
@@ -101,7 +101,7 @@ class BottomNav extends React.Component {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item sm={4} xs={false}/>
+                    <Grid item sm={4} xs={false} />
                     <Grid item sm={4} xs={12}>
                         <Grid
                             container
@@ -113,8 +113,10 @@ class BottomNav extends React.Component {
                             }}
                             className={classes.navLinkContainer}
                         >
+                            <Grid item md={4} sm={0}/>
                             <Grid
                                 item
+                                md={4}
                                 sm={6}
                                 style={{
                                     textAlign: 'center',
@@ -135,6 +137,7 @@ class BottomNav extends React.Component {
                             </Grid>
                             <Grid
                                 item
+                                md={4}
                                 sm={6}
                                 style={{
                                     textAlign: 'center',
