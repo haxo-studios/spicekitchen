@@ -87,10 +87,10 @@ const styles = theme => ({
         marginTop: '40px',
         textAlign: 'right',
         [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
-            fontSize: '18px'
+            fontSize: '20px'
         },
         [theme.breakpoints.up('md')]: {
-            fontSize: '20px'
+            fontSize: '24px'
         },
         [theme.breakpoints.down('xs')]: {
             fontSize: '16px'
