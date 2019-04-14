@@ -67,10 +67,13 @@ const styles = theme => ({
         transform: 'scale(0.8)',
     },
     title: {
-        fontSize: 35,
+        fontSize: '35px',
         textAlign: 'right',
         [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
             fontSize: '28px'
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '35px'
         },
         [theme.breakpoints.down('xs')]: {
             fontSize: '22px'
@@ -80,14 +83,17 @@ const styles = theme => ({
         marginBottom: 12,
     },
     content: {
-        fontSize: 20,
+        fontSize: '20px',
         marginTop: '40px',
         textAlign: 'right',
         [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
-            fontSize: '16px'
+            fontSize: '18px'
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '20px'
         },
         [theme.breakpoints.down('xs')]: {
-            fontSize: '12px'
+            fontSize: '16px'
         },
     },
 })
@@ -119,7 +125,7 @@ class Contact extends React.Component {
                                         Give Us a Call - 0370149003 <br />
                                     </span>
 
-                                    <p
+                                    <span
                                         style={{
                                             marginTop: '15px',
                                         }}
@@ -127,7 +133,7 @@ class Contact extends React.Component {
                                         Level 1, opp. Dan Murphys, QV Building,{' '}
                                         <br />
                                         210 Lonsdale St. Melbourne VIC - 3000
-                                    </p>
+                                    </span>
                                 </Typography>
                                 {/* <div style={{ height: '100vh', width: '100%' }}>
                                 <GoogleMapReact

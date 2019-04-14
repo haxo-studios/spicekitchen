@@ -66,10 +66,13 @@ const styles = theme => ({
         transform: 'scale(0.8)',
     },
     title: {
-        fontSize: 35,
+        fontSize: '35px',
         textAlign: 'center',
         [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
             fontSize: '28px'
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '35px'
         },
         [theme.breakpoints.down('xs')]: {
             fontSize: '22px'
@@ -79,13 +82,16 @@ const styles = theme => ({
         marginBottom: 12,
     },
     content: {
-        fontSize: 20,
+        fontSize: '20px',
         textAlign: 'center',
         [theme.breakpoints.down('sm') && theme.breakpoints.up('xs')]: {
             fontSize: '16px'
         },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '20px'
+        },
         [theme.breakpoints.down('xs')]: {
-            fontSize: '12px'
+            fontSize: '16px'
         },
     },
 })

@@ -131,7 +131,8 @@ const styles = theme => ({
     logo: {
         height: '100px',
         width: '100px',
-        marginLeft: '20px',
+        marginLeft: '25px',
+        marginTop: '10px',
         cursor: 'pointer',
         [theme.breakpoints.down('xs')]: {
             textAlign: 'center',
@@ -337,6 +338,8 @@ class Nav extends React.Component {
                                 }}
                                 style={{
                                     padding: '5px 16px 5px 16px',
+                                    marginTop: '20px',
+                                    marginBottom: '20px',
                                     height: '50px',
                                     fontFamily: 'Gotham',
                                     fontSize: '18px',
