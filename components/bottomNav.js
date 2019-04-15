@@ -35,7 +35,7 @@ const styles = theme => ({
         textDecoration: 'None',
         color: '#120052',
         fontSize: '16px',
-        fontWeight: '700',
+        fontWeight: '400',
         fontFamily: 'Gotham Light',
         '&:hover': {
             textShadow: '#00c2ba 2px 2px',
