@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { createGlobalStyle } from 'styled-components'
 // import Head from './head'
+import BGVideo from './coverVideo'
 import Nav from './nav'
+import BottomNav from './bottomNav'
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -22,15 +24,33 @@ const GlobalStyle = createGlobalStyle`
 `
 
 class Layout extends Component {
+    state = {
+        videoCode: '328795534'
+    }
+
+    updateVideo = url => {
+        this.setState({
+            videoCode: url,
+        })
+    }
+
     render() {
-        const { children } = this.props
+        const { children, pathname } = this.props
+        const isIndex = pathname === '/'
+        // console.log('>>', isIndex)
 
         return (
-            <div>
-                <GlobalStyle />
-                <Nav />
-                {children}
-            </div>
+            <>
+                {isIndex ? <BGVideo videoCode={this.state.videoCode} /> : <></>}
+                <div>
+                    <GlobalStyle />
+                    <Nav pathname={pathname} updateVideo={this.updateVideo} />
+                    {/* {isIndex ? <></> : <Banner pathname={pathname} />} */}
+
+                    {children}
+                    <BottomNav pathname={pathname} />
+                </div>
+            </>
         )
     }
 }
